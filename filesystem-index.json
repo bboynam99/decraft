@@ -7,7 +7,7 @@
   "CNAME": null,
   "CONTRIBUTING.md": null,
   "desktop": {
-    "CREDITS.txt": null,
+    "ReadMore.txt": null,
     "Themes": {
       "Ash.themepack": null,
       "Blue.themepack": null,
@@ -338,6 +338,7 @@
       "speaker-16x16.png": null,
       "speaker-32x32.png": null,
       "speaker-volume-control-32x32.png": null,
+      "user-key.ico": null,
       "start-menu-programs-32x32.png": null,
       "start-settings-16x16.png": null,
       "start-settings-32x32.png": null,

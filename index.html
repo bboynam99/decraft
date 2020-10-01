@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>98.js - Windows 98 Online</title>
+		<title>Craft</title>
 		<link href="layout.css" rel="stylesheet" type="text/css">
 		<link href="lib/os-gui/layout.css" rel="stylesheet" type="text/css">
 		<link href="lib/os-gui/windows-98.css" rel="stylesheet" type="text/css">
@@ -44,9 +44,21 @@
 		<div class="start-menu outset-deep" hidden style="display: none;">
 			<div class="start-menu-titlebar"></div>
 			<div class="start-menu-content">
-				<h1>'S tart</h1>
-				<img src="https://i.postimg.cc/dtxsJq0d/CK1IhDr.gif"/>
-			</div>
+		 	<ul>
+				<li  class="start-list" tabindex="-1">
+					<img style="float: left;margin-top: -6px;"class="dc-icon" width="32" height ="32"src="images/icons/users-key-16x16.png">
+					My Wallet</li >		 	
+				<li  class="start-list" tabindex="-1">
+					<img style="float: left;margin-top: -6px;"class="dc-icon" src="images/icons/help-32x32.png">
+					Read More</li >
+				<li  class="start-list" tabindex="-1">
+					<img style="float: left;margin-top: -6px;"class="dc-icon" width="32" height ="32"src="images/icons/Liquid-16x16.png">
+					Liquidity Event</li >
+ 					<hr>
+				<li class="start-list-disabled" tabindex="-1">
+					<img style="float: left;margin-top: -6px;"class="dc-icon" width="32" height ="32"src="images/icons/msg-error-16x16.png">
+					Disconnect Wallet</li >
+			</ul>
 		</div>
 		<script src="lib/pep.js"></script>
 		<script src="lib/jquery.min.js"></script>
@@ -96,4 +108,26 @@
 			</defs>
 		</svg>
 	</body>
+	<style>
+.start-menu-content{
+	padding: 0;
+	width: 100%;
+}
+.start-list ,.start-list-disabled{
+	padding: 10px;
+	font-size: 16px;
+	text-align: right;	
+}
+.start-list-disabled{
+	border-width: 0;
+	color: #565656;
+	cursor: not-allowed;
+
+}
+.start-list:hover{
+	background-color: #000080;
+
+	color: white;
+}
+	</style>
 </html>

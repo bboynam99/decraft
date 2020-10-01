@@ -374,6 +374,20 @@ function SoundRecorder(file_path){
 	});
 	return new Task($win);
 }
+function MyWallet(file_path){
+	// TODO: DRY the default file names and title code (use document.title of the page in the iframe, in $IframeWindow)
+	var document_title = file_path ? file_name_from_path(file_path) : "Wallet";
+	var win_title = document_title + " - Craft";
+	// TODO: focus existing window if file is currently open?
+	var $win = new $IframeWindow({
+		src: "programs/wallet/index.html" + (file_path ? ("?path=" + file_path) : ""),
+		icon: "users-key",
+		title: win_title,
+		innerWidth:400,
+		innerHeight: 500
+	});
+	return new Task($win);
+}
 SoundRecorder.acceptsFilePaths = true;
 
 function Explorer(address){
@@ -824,36 +838,42 @@ var add_icon_not_via_filesystem = function(options){
 	options.icon = $Icon(options.icon, DESKTOP_ICON_SIZE);
 	new $FolderViewIcon(options).appendTo($folder_view);
 };
-add_icon_not_via_filesystem({
+/*add_icon_not_via_filesystem({
 	title: "My Computer",
 	icon: "my-computer",
 	open: function(){ executeFile("/"); },
-});
+});*/
 add_icon_not_via_filesystem({
 	title: "My Documents",
 	icon: "my-documents-folder",
 	open: function(){ executeFile("/my-documents"); },
 });
-add_icon_not_via_filesystem({
+/*add_icon_not_via_filesystem({
 	title: "Network Neighborhood",
 	icon: "network",
 	open: function(){ executeFile("/network-neighborhood"); },
-});
-add_icon_not_via_filesystem({
+});*/
+/*add_icon_not_via_filesystem({
 	title: "Recycle Bin",
 	icon: "recycle-bin",
 	open: function(){ Explorer("https://www.epa.gov/recycle/"); }
-});
+});*/
 add_icon_not_via_filesystem({
 	title: "My Pictures",
 	icon: "folder",
 	open: function(){ executeFile("/my-pictures"); },
 });
 add_icon_not_via_filesystem({
+	title: "Wallet",
+	icon: "users-key",
+	open: MyWallet,
+	shortcut: true
+});
+/*add_icon_not_via_filesystem({
 	title: "Internet Explorer",
 	icon: "internet-explorer",
 	open: function(){ Explorer("https://www.google.com/"); }
-});
+});*/
 add_icon_not_via_filesystem({
 	title: "Paint",
 	icon: "paint",
@@ -866,23 +886,23 @@ add_icon_not_via_filesystem({
 	open: Minesweeper,
 	shortcut: true
 });
-add_icon_not_via_filesystem({
+/*add_icon_not_via_filesystem({
 	title: "Sound Recorder",
 	icon: "speaker",
 	open: SoundRecorder,
 	shortcut: true
-});
-add_icon_not_via_filesystem({
+});*/
+/*add_icon_not_via_filesystem({
 	title: "Notepad",
 	icon: "notepad",
 	open: Notepad,
 	shortcut: true
-});
-add_icon_not_via_filesystem({
+});*/
+/*add_icon_not_via_filesystem({
 	title: "Winamp",
 	icon: "winamp2",
 	open: openWinamp,
-	shortcut: true
-});
+	shortcut: false
+});*/
 
 $folder_view.arrange_icons();
