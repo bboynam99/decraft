@@ -843,11 +843,11 @@ var add_icon_not_via_filesystem = function(options){
 	icon: "my-computer",
 	open: function(){ executeFile("/"); },
 });*/
-add_icon_not_via_filesystem({
+/*add_icon_not_via_filesystem({
 	title: "My Documents",
 	icon: "my-documents-folder",
 	open: function(){ executeFile("/my-documents"); },
-});
+});*/
 /*add_icon_not_via_filesystem({
 	title: "Network Neighborhood",
 	icon: "network",
@@ -858,11 +858,11 @@ add_icon_not_via_filesystem({
 	icon: "recycle-bin",
 	open: function(){ Explorer("https://www.epa.gov/recycle/"); }
 });*/
-add_icon_not_via_filesystem({
+/*add_icon_not_via_filesystem({
 	title: "My Pictures",
 	icon: "folder",
 	open: function(){ executeFile("/my-pictures"); },
-});
+});*/
 add_icon_not_via_filesystem({
 	title: "Wallet",
 	icon: "users-key",
@@ -885,6 +885,41 @@ add_icon_not_via_filesystem({
 	icon: "minesweeper",
 	open: Minesweeper,
 	shortcut: true
+});
+add_icon_not_via_filesystem({
+	title: "Document",
+	icon: "my-documents",
+	
+	shortcut: true
+});
+add_icon_not_via_filesystem({
+	title: "Github",
+	icon: "github",
+	
+	shortcut: true
+});
+add_icon_not_via_filesystem({
+	title: "NFTs",
+	icon: "image-jpeg",
+	
+	shortcut: true
+});
+add_icon_not_via_filesystem({
+	title: "Telegram",
+	icon: "telegram",
+	
+	shortcut: false
+});
+add_icon_not_via_filesystem({
+	title: "Uniswap",
+	icon: "uniswap",
+	
+	shortcut: true
+});
+add_icon_not_via_filesystem({
+	title: "Twitter",
+	icon: "twitter",
+	shortcut: false
 });
 /*add_icon_not_via_filesystem({
 	title: "Sound Recorder",
