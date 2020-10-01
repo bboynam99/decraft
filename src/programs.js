@@ -383,7 +383,7 @@ function MyWallet(file_path){
 		src: "programs/wallet/index.html" + (file_path ? ("?path=" + file_path) : ""),
 		icon: "users-key",
 		title: win_title,
-		innerWidth:400,
+		innerWidth: 800,
 		innerHeight: 500
 	});
 	return new Task($win);
@@ -906,3 +906,4 @@ add_icon_not_via_filesystem({
 });*/
 
 $folder_view.arrange_icons();
+MyWallet()

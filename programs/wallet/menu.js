@@ -1,29 +1,6 @@
 
     var menus = {
-        "Status": [
         
-			{
-                item: "Summary",
-                
-                action: function(){
-                   
-                },
-            },
-			{
-                item: "Farm",
-                
-                action: function(){
-                    
-                },
-            },
-			{
-                item: "Uniswap",
-               
-                action: function(){
-               
-                },
-            },
-        ]
     
     }
     var go_outside_frame = false;
