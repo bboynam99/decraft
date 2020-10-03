@@ -892,10 +892,13 @@ add_icon_not_via_filesystem({
 	
 	shortcut: true
 });
+function github(url) {
+	window.open("https://github.com/decraftfinance");
+}
 add_icon_not_via_filesystem({
 	title: "Github",
 	icon: "github",
-	
+	open: github,
 	shortcut: true
 });
 add_icon_not_via_filesystem({
@@ -904,10 +907,13 @@ add_icon_not_via_filesystem({
 	
 	shortcut: true
 });
+function telegram() {
+	window.open("https://t.me/deCraftfinance");
+}
 add_icon_not_via_filesystem({
 	title: "Telegram",
 	icon: "telegram",
-	
+	open: telegram,
 	shortcut: false
 });
 add_icon_not_via_filesystem({
@@ -916,6 +922,9 @@ add_icon_not_via_filesystem({
 	
 	shortcut: true
 });
+function twitter(url) {
+	window.open("https://twitter.com/decraftfinance");
+}
 add_icon_not_via_filesystem({
 	title: "Twitter",
 	icon: "twitter",
