@@ -928,7 +928,17 @@ function twitter(url) {
 add_icon_not_via_filesystem({
 	title: "Twitter",
 	icon: "twitter",
-	shortcut: false
+	shortcut: false,
+	open: twitter
+});
+function medium(url) {
+	window.open("https://medium.com/@decraftfinance");
+}
+add_icon_not_via_filesystem({
+	title: "Medium",
+	icon: "medium",
+	shortcut: false,
+	open: medium
 });
 /*add_icon_not_via_filesystem({
 	title: "Sound Recorder",

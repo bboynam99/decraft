@@ -16,6 +16,10 @@
         <h1 v-if="walletStatus == 'not_connected'">Connect Your Wallet</h1>
         <h1 v-if="walletStatus == 'connecting'">Please Approve To Continue...</h1>
         <h1 v-if="walletStatus == 'rejected'">Aproval Rejected Please Try Again.</h1>
+        <div v-if="walletStatus == 'connected'">
+          <br/>
+          <button @click="disconnect">Disconnect</button>
+        </div>
         <div id="wallet_option" v-if="action == 'connect'">
           <button class="btn btn-primary" @click="metamask">METAMASK</button>
         </div>
@@ -25,38 +29,34 @@
     </div>
     <hr/>
     <div style="margin: auto;text-align: center;">
+      <button @click="menu = 'liquidity'">Liquidity Event </button> <button @click="menu = 'farm'">Farming</button>
+    </div>
+    <div style="margin: auto;text-align: center;" v-if="menu == 'liquidity'">
       <h1>Join Our Liqudity Event</h1>
+      <br/>
+      <h5>{{ getTime() }}</h5>
       <p>You Will Receive LP Token When Event end and you can use LP Token To Get MORE CRAFT</p>
       ETH <input v-model="joinAmount">
-      <button disabled>COMING SOON</button>
+      <button @click="addLiquidity" :disabled="distance > 1"><b v-if="distance > 1">{{ start() }}</b> <b v-else>SUBMIT</b></button>
       <br/>
       <br/>
       <button @click="joinAmount = 1">1 ETH</button>
       <button @click="joinAmount = 5">5 ETH</button>
       <button @click="joinAmount = 10">10 ETH</button>
-      <button>MAX</button>
+      <button @click="joinAmount = myEthereum">MAX</button>
       <br/>
       <br/>
       <br/>
       <fieldset style="display: flex;">
         <legend>Summary</legend>
-        <h4>Total ETH <br/> 0</h4>
-        <h4>Total Address <br/> 0</h4>
+        <h4>Total ETH <br/> {{ totalETHContributed }}</h4>
       </fieldset>
 
     </div>
-    <div v-if="true == false">
+    <div  v-if="menu == 'farm'">
       <div style="margin: auto;text-align: center;">
-        <h1 v-if="walletStatus == 'not_connected'">Ready to farm without inflation?</h1>
-        <h1 v-if="walletStatus == 'connecting'">Please Approve To Continue...</h1>
-        <h1 v-if="walletStatus == 'rejected'">Aproval Rejected Please Try Again.</h1>
-        <div id="wallet_option" v-if="action == 'connect'">
-          <button class="btn btn-primary" @click="metamask">METAMASK</button>
-        </div>
-        <div id="action_option" v-if="action == ''">
-          <button @click="action = 'connect'">Connect Wallet</button>
-          <button>Read More</button>
-        </div>
+        <h1>Ready to farm without inflation?</h1>
+        
       </div>
       <br />
       <h5 style="font-weight: bold; font-style: italic;">CRAFT v.1.0.0</h5>
@@ -67,7 +67,7 @@
       <div class="window os-window focused" style="margin-top: -2px;" v-if="show == 'summary'">
         <fieldset>
           <legend>CRAFT:</legend>
-          Total : {{ }} <br /> <br />
+          Total : {{ parseInt(tokenWallet) +  parseInt(tokenClaimable) }} <br /> <br />
           Wallet: {{ tokenWallet }}
           <button style="float:right">Get CRAFT</button>
           <br />
@@ -79,9 +79,9 @@
         </fieldset>
         <fieldset>
           <legend>CRAFT/WETHLP:</legend>
-          <h3>Total : 0</h3> 
-          <h3>Wallet: {{ lpWallet }} <button style="float:right">GET LP</button></h3>
-          <h3>Staked : {{ lpStaked }} <button style="float:right">Unstaked</button></h3>
+          <h3>Total : {{ parseInt(lpWallet) + parseInt(lpStaked) }}</h3> 
+          <h3>Wallet: {{ lpWallet }} <button style="float:right">GET LP</button> <button style="float:right">Stake LP</button></h3>
+          <h3>Staked : {{ lpStaked }} <button style="float:right">Unstake</button></h3>
 
         </fieldset>
       </div>
@@ -91,6 +91,7 @@
 <script src="../../lib/jquery.min.js"></script>
 <script src="../../lib/os-gui/$MenuBar.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/web3@latest/dist/web3.min.js"></script>
 <script src="menu.js"></script>
 
 </html>
